@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>微信JS-SDK Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wxapi_container">
+  <div class="wxapi_index_container">
+    <ul class="label_box lbox_close wxapi_index_list">
+      <li class="label_item wxapi_index_item"><a class="label_inner">扩展或测试的功能</a></li>
+      <li class="label_item wxapi_index_item"><a class="label_inner" href="#h5-img-upload">上传图片</a></li>
+      <li class="label_item wxapi_index_item"><a class="label_inner" href="#h5-img-zoom">缩放图片</a></li>
+      <li class="label_item wxapi_index_item"><a class="label_inner" href="#h5-img-clip">裁剪图片</a></li>
+    </ul>
+  </div>
+  <div class="lbox_close wxapi_form">
+    <h3>HTML5 Mobile 头像裁切</h3>
+    <h3 id="h5-img-upload">上传图片</h3>
+    <p class="desc">注：此处上传功能暂选用微信接口</p>
+    <button class="btn btn_primary">上传图片</button>
+
+    <input type="file" accept="images/*">
+    <p class="desc">此属性可以调用手机相机及相册功能，但微信内不可用</p>
+    <h3 id="h5-img-zoom">缩放图片</h3>
+    <span class="desc">对图片进行拖拽和缩放</span>
+    <div class="pinch-zoom">
+        <!-- <div class="description">
+            <h1>Pinchzoom.js</h1>
+            <p>Multi-touch zoom in Javascript avatar</p>
+        </div> -->
+        <img class="clipImage" src="bing.jpg"/>
+        <!-- <a class="image" href="http://www.flickr.com/photos/59446027@N00/5258583198" target="_blank">by Peter Nijenhuis on Flickr; Some rights reserved</a> -->
+    </div>
+    
+    <h3 id="h5-img-clip">裁剪图片</h3>
+    <span class="desc">对图片选定区域进行裁剪(手机浏览器中裁剪功能容易导致卡死)</span>
+    <button class="btn btn_primary" id="clipImageBtn">确认裁剪区域</button>
+    <div class="clipBox">
+      <span class="clipResult"></span>
+    </div>
+    
+    <button class="btn btn_primary" id="submitImage">提交上传</button>
+    <!-- <div class="avatarBox"></div> -->
+  </div>
+</div>
+
+<!-- <script src="http://zeptojs.com/zepto.min.js"></script> -->
+<script src="js/zepto.min.js"></script>
+<!-- <script src="http://underscorejs.org/underscore-min.js"></script> -->
+<!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+<script>
+( function(){
+  function LoadJS( jsUrl ) {
+    var oHead = document.getElementsByTagName('HEAD').item(0);
+    //var oHead = document.getElementById('tongji')
+    var oScript= document.createElement("script"); 
+    oScript.type = "text/javascript"; 
+    oScript.src=jsUrl; 
+    oHead.appendChild( oScript); 
+  };
+
+  var time;
+  time = new Date().getTime() || 2;
+  var stamp = !time ? '' : ('?t=' + time);
+  
+  LoadJS('./js/pinchzoom.js' + stamp);
+  // LoadJS('./component.js' + stamp);
+  // LoadJS('./js/demo.js' + stamp);
+  // LoadJS('./photo.js' + stamp);
+   
+  setTimeout(function(){
+    LoadJS('./js/clipPhoto.js' + stamp);
+  },300)
+  
+  // 
+    
+} )();
+</script>
+</body>
+</html>
