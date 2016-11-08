@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test jump</title>
+</head>
+<body>
+<script>
+var href = location.href;
+var arr = href.split('?');
+var temp = arr[1].split('=');
+var jumpurl = decodeURIComponent(temp[1]);
+location.href = jumpurl + '&code=test';
+</script>
+</body>
+</html>

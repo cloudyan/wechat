@@ -6,7 +6,7 @@
 </head>
 <body>
   <script>
-  //工时，请假
+  //工时打卡时间段
   var times = [
     ['08:30~17:30'],
     ['08:30~17:30','10:30~17:30'],
@@ -15,6 +15,7 @@
   ];
 
   var minutes = 0;
+  var repeatTimes = [];
   times.forEach(function(item){
     //整理数据排序，小的开头
     item.sort();
@@ -51,16 +52,18 @@
       // T1 和 T2有重叠
       if(T1.end > T2.end){
         //T1 包含 T2
+        repeatTimes.push(T2.start + '~' + T2.end);  //重叠时间
         return getMinutes(T1.start, T1.end);
       }else{
         //有重叠，T2结束时间更晚
+        repeatTimes.push(T2.start + '~' + T1.end);
         return getMinutes(T1.start, T2.end);
       }
     } else {
       //没有重叠，分别计算累加即可
       return getMinutes(T1.start, T1.end) + getMinutes(T2.start, T2.end);
     }
-  };
+  }
 
   function getMinutes(start, end){
     start = start.split(':');
@@ -70,6 +73,7 @@
 
     return hours*60+minutes;
   }
+
 
 
   </script>

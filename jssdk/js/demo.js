@@ -34,20 +34,35 @@ function updateUrl(opt){
   var jsApiUrl = isUpdate ? href : loadUrl;
   localUrlDom.innerHTML = href;
 
-
-  ajaxJssdk(jsApiUrl);
-
   switch(opt.status){
     case 'replaceState':
-      window.history.replaceState(null, title, href);
+      history.replaceState(null, title, href);
       break;
     case 'pushState':
-      window.history.pushState({ title: title }, title, href);
+      history.pushState({ title: title }, title, href);
+      break;
+    case 'go':
+      if(href.indexOf('code=') == -1){
+        location.href = 'test.html?jumpurl=' + encodeURIComponent(href);
+      }else{
+        history.go(-2);
+      }
+      return;
+      break;
+    case 'href':
+      location.href = href;
+      break;
+    case 'replace':
+      location.replace(href);
       break;
     default:
      break;
   }
+  ajaxJssdk(jsApiUrl);
 }
+
+// alert('提示：go 回来的话，会和重新加载页面一样，此时加载的 js 也会初始化执行，当前 loadURl 为最新的 url ');
+ajaxJssdk();
 
 window.addEventListener("popstate", function() {
     var currentState = history.state;
@@ -57,8 +72,6 @@ window.addEventListener("popstate", function() {
 
 function ajaxJssdk(url){
   var href = url || loadUrl;
-
-  jsUrlDom.innerHTML = href;
 
   $.ajax({
       type: 'GET',
@@ -72,6 +85,7 @@ function ajaxJssdk(url){
       success: function(data,status){
         console.log(data)
         jssdkConfig(data);
+        jsUrlDom.innerHTML = href;
       },
       error: function(xhr, type){
         console.log('Ajax error!')

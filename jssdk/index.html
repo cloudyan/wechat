@@ -16,6 +16,9 @@
       <li><button class="btn btn_primary" onclick="ajaxJssdk()">注册 load url</button></li>
       <li><button class="btn btn_primary" onclick="updateUrl({status: 'replaceState'});">history.replaceState</button></li>
       <li><button class="btn btn_primary" onclick="updateUrl({status: 'pushState'});">history.pushState</button></li>
+      <li><button class="btn btn_primary" onclick="updateUrl({status: 'go'});">history.go(-2);</button></li>
+      <li><button class="btn btn_primary" onclick="updateUrl({status: 'href'});">location.href = url;</button></li>
+      <li><button class="btn btn_primary" onclick="updateUrl({status: 'replace'});">location.replace(url)</button></li>
       <li class="gray">当前的 URL：</li>
       <li id="local_url">...</li>
       <li class="gray">当前注册的 URL：</li>
@@ -24,6 +27,7 @@
       <li id="load_url">...</li>
       <li><button class="btn btn_primary" onclick="isUpdateUrl();">每次注册的 URL 是否为最新: <span id="isUpdateUrl">False</span></button></li>
       <li><b class="note">注意：</b>不能使用 pushState 以及 replaceState 方式更新 url 后再用新 url 去注册JSSDK配置信息，这样会失败，此时需使用页面加载时的那个 url 去注册。简单理解，就是<strong class="note">单页面应用只注册 load 时的 url 即可。</strong></li>
+      <li>使用location 的 href 或 replace 改变 url，相当于刷新页面，需要新页面重新做注册操作。</li>
       <li>验证：注册 load url 时，checkJsApi 每次都能通过。为了便于测试，取消了默认调用注册的功能。</li>
     </ul>
     <ul class="label_box lbox_close wxapi_index_list">
