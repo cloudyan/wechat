@@ -43,8 +43,7 @@ Page({
     ]
   },
   widgetsToggle: function (e) {
-    var id = e.currentTarget.id,
-        list = this.data.list;
+    var id = e.currentTarget.id, list = this.data.list;
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
         list[i].open = !list[i].open;

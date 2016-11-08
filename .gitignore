@@ -30,3 +30,5 @@ node_modules
 .DS_Store
 temp
 jssdk/api.php
+demo
+*.zip
