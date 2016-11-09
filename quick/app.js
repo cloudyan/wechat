@@ -5,6 +5,12 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    __wxConfig.projectConfig.Network.RequestDomain = __wxConfig.projectConfig.Network.RequestDomain.concat([
+      'http://m.api.haoshiqi.net',
+      'http://api.v3.iqianggou.com',
+      'https://www.v2ex.com',
+    ]);
   },
   getUserInfo:function(cb){
     var that = this;

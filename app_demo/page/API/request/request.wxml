@@ -1,17 +1,27 @@
 <import src="../common/header.wxml" />
 <import src="../common/footer.wxml" />
 
-<view class="container">
+<view class="container page-request">
   <template is="header" data="{{title: 'request'}}"/>
 
   <view class="page-body">
     <view class="page-body-wording">
       <text class="page-body-text">
-        搭建好自己的后台服务器后，可以跟服务器互通数据，为用户提供个性化服务。
+        搭建好自己的后台服务器后，可以跟服务器互通数据，为用户提供个性化服务。这里可以先用 github api 测试
       </text>
+    </view>
+    <view class="page-body-wording">
+      <text class="page-body-text" bindtap="bindViewReq">
+        点击发起一个请求，请求结果：
+      </text>
+      <loading hidden="{{hidden}}">加载中...</loading>
+      <block wx:for-items="{{list}}" wx:key="item.id">
+        <view>
+        <text class="widget__name">{{item.name}}</text>
+        </view>
+      </block>
     </view>
   </view>
 
   <template is="footer" />
 </view>
-

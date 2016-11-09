@@ -2,7 +2,10 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/req/req"
+    "pages/req/req",
+    "pages/slider/slider",
+    "pages/slider/slider2",
+    "pages/tabs/tabs"
   ],
   "topBar": {
     "list": [{

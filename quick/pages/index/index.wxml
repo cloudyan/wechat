@@ -1,13 +1,22 @@
 <!--index.wxml-->
 <view class="container">
-  <view bindtap="bindViewTap" class="userinfo">
+  <view bindtap="bindGoNext" data-page="logs" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-  <view class="usermotto" bindtap="bindViewData">
+  <view class="usermotto" bindtap="bindGoNext" data-page="req">
     <text class="user-motto">测试请求数据</text>
+  </view>
+  <view class="usermotto" bindtap="bindGoNext" data-page="tabs">
+    <text class="user-motto">tabs 切换</text>
+  </view>
+  <view class="usermotto" bindtap="bindGoNext" data-page="slider">
+    <text class="user-motto">slider test</text>
+  </view>
+  <view class="usermotto" bindtap="bindGoNext" data-page="slider2">
+    <text class="user-motto">slider circle</text>
   </view>
 </view>

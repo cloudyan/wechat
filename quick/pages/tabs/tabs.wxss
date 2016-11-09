@@ -13,6 +13,7 @@
   height: 80rpx;
   color: #ccc;
   line-height: 80rpx;
+  padding: 0 80rpx;
 }
 .mod-test .title .tab.active {
   color: #515151;
@@ -29,6 +30,9 @@
 }
 
 .mod-test .pages {
-  height: 100%;
+  height: 300rpx;
   margin-top: 20rpx;
+}
+.mod-test swiper-item {
+  /*background: #ccc;*/
 }

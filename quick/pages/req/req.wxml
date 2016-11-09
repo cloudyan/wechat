@@ -1,15 +1,16 @@
 <!--req.wxml-->
 <view class="index">
-  <view class="head">
+  <view class="head" bindtap="bindViewReq" data-href="http://m.baidu.com">
     <view class="title">请求数据</view>
     <view class="desc">暂时使用 github 数据，不支持过滤器处理数据</view>
+    <a href="http://m.baidu.com">外链不用且，所有的 html 标签不可用，规则 tag => wx-tag</a>
   </view>
 
   <view class="body">
     <view class="widgets">
       <loading hidden="{{hidden}}">加载中...</loading>
       <block wx:for-items="{{list}}" wx:key="item.id">
-        <navigator url="{{item.html_url}}" class="widget">
+        <navigator url="{{item.html_url + '?id=' + item.id}}" class="widget">
         <text class="widget__name">{{item.name}}: {{item.updated_at }}</text>
         <image class="widget__arrow" src="/image/arrowright.png" mode="aspectFill" />
         <view class="widget__line {{index == 0 ? 'widget__line_first' : ''}}"></view>

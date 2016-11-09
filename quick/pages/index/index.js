@@ -12,10 +12,22 @@ Page({
       url: '../logs/logs'
     })
   },
-  bindViewData: function(){
-    wx.navigateTo({
-      url: '../req/req',
-    })
+  bindGoNext: function(e){
+    console.log(e);
+    var dataset = e.currentTarget.dataset,
+        pageType = dataset.page;
+    switch(pageType){
+      case 'slider2':
+        wx.navigateTo({
+          url: '../slider/slider2',
+        })
+        console.log('无效页面跳转')
+        break;
+      default:
+        wx.navigateTo({
+          url: '../'+ pageType +'/' + pageType,
+        })
+    }
   },
   onLoad: function () {
     console.log('onLoad')
