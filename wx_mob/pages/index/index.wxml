@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="page page-index">
+  <view class="page__bd">
+    <view class="section swiper">
+      <swiper indicator-dots="{{swiper.indicatorDots}}" vertical="{{swiper.vertical}}"
+        autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+        <block wx:for="{{swiper.background}}">
+          <swiper-item>
+            <view class="swiper-item bc_{{item}}"></view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>

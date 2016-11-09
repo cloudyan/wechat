@@ -1,0 +1,30 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/req/req",
+    "pages/slider/slider",
+    "pages/slider/slider2",
+    "pages/tabs/tabs"
+  ],
+  "topBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    },
+    {
+      "pagePath": "pages/index/logs",
+      "text": "登录日志"
+    },
+    {
+      "pagePath": "pages/index/req",
+      "text": "请求数据测试"
+    }]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "demo",
+    "navigationBarTextStyle":"black"
+  }
+}
